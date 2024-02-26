@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<settings>
+			<api>
+				<public_key/>
+				<private_key/>
+				<invoice_block/>
+			</api>
+			<invoice>
+				<trigger>manual</trigger>
+				<trigger_status>[]</trigger_status>
+				<send_email>0</send_email>
+				<send_enable>0</send_enable>
+				<electronic>0</electronic>
+				<invoice_type>draft</invoice_type>
+				<invoice_lang>hu</invoice_lang>
+				<note/>
+				<unit>db</unit>
+				<add_sku>0</add_sku>
+				<tax_override></tax_override>
+				<tax_override_entitlement></tax_override_entitlement>
+				<tax_override_zero></tax_override_zero>
+				<tax_override_zero_entitlement></tax_override_zero_entitlement>
+				<tax_override_eu>0</tax_override_eu>
+				<tax_override_include_carrier>0</tax_override_include_carrier>
+			</invoice>
+			<paymentmap>
+				<paymentmap>[]</paymentmap>
+			</paymentmap>
+		</settings>
+	</default>
+</config>

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="PWS\Billingo\Api\BillingoRepositoryInterface" type="PWS\Billingo\Model\BillingoRepository"/>
+	<preference for="PWS\Billingo\Api\Data\BillingoInterface" type="PWS\Billingo\Model\Billingo"/>
+	<preference for="PWS\Billingo\Api\Data\BillingoSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+</config>

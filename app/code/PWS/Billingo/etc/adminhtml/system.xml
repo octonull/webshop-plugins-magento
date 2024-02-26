@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="billingo" sortOrder="999" translate="label">
+			<label>Billingo</label>
+		</tab>
+		<section id="settings" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Settings</label>
+			<tab>billingo</tab>
+			<resource>PWS_Billingo::config_pws_billingo</resource>
+			<group id="api" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1" translate="label">
+				<label>Api</label>
+				<field id="api_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Api key</label>
+					<comment/>
+				</field>
+				<field id="invoice_block" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Invoice block ID</label>
+					<comment/>
+				</field>
+			</group>
+			<group id="invoice" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="3" translate="label">
+				<label>Invoice</label>
+				<field id="trigger" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Trigger</label>
+					<comment>Invoice creation event</comment>
+					<source_model>PWS\Billingo\Model\Config\Source\Trigger</source_model>
+				</field>
+				<field id="trigger_status" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="multiselect">
+					<label>Trigger status</label>
+					<comment>Order status to trigger invoice generation. (Only if trigger is set to status.)</comment>
+					<source_model>PWS\Billingo\Model\Config\Source\InvoiceTriggerStatus</source_model>
+					<!-- <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model> -->
+				</field>
+				<field id="send_email" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Send email</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="send_enable" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enable the "Send via Billingo" option</label>
+                    <comment>Useful for drafts, so you don't have to manually enable it every time.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="electronic" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Electronic invoice</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="invoice_type" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Invoice type</label>
+					<comment/>
+					<source_model>PWS\Billingo\Model\Config\Source\InvoiceType</source_model>
+				</field>
+				<field id="invoice_lang" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Invoice language</label>
+					<comment>If the invoice language is based on the invoice address but the country code is not an available language, english will be used</comment>
+					<source_model>PWS\Billingo\Model\Config\Source\InvoiceLang</source_model>
+				</field>
+				<field id="note" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Note</label>
+					<comment/>
+				</field>
+				<field id="unit" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Unit</label>
+					<comment/>
+				</field>
+				<field id="add_sku" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Add SKU</label>
+					<comment>If enabled, adds product SKU to product comment in Billingo.</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="tax_override" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Tax override</label>
+					<comment>If not empty, replaces the tax values to the selected one.</comment>
+					<source_model>PWS\Billingo\Model\Config\Source\Vats</source_model>
+				</field>
+				<field id="tax_override_entitlement" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Entitlement for tax override</label>
+					<comment>An entitlement must be selected for specific TAX overrides. Read more at https://www.billingo.hu/blog/olvas/hamarosan-atall-a-billingo-a-nav-30-verziora-fontos-informaciok</comment>
+					<source_model>PWS\Billingo\Model\Config\Source\Entitlements</source_model>
+				</field>
+				<field id="tax_override_zero" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Tax override if 0%</label>
+					<comment>If not empty, replaces the tax values to the selected one, but only if it would be zero.</comment>
+					<source_model>PWS\Billingo\Model\Config\Source\Vats</source_model>
+				</field>
+				<field id="tax_override_zero_entitlement" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Entitlement for 0% tax override</label>
+					<comment>An entitlement must be selected for specific TAX overrides. Read more at https://www.billingo.hu/blog/olvas/hamarosan-atall-a-billingo-a-nav-30-verziora-fontos-informaciok</comment>
+					<source_model>PWS\Billingo\Model\Config\Source\Entitlements</source_model>
+				</field>
+				<field id="tax_override_eu" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Tax override EU/EUK</label>
+					<comment>Turn on to override tax with EU/EUK. Uses EU if the billing country is an EU country, uses EUK otherwise. (Turn on the following option to override carriers)</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="tax_override_include_carrier" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Tax override for shipping</label>
+					<comment>Turn on to override shipping tax. (Example: Do NOT turn this on if you wish an 'AM' override for the products but the shipping should remain 27%)</comment>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="paymentmap" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Payment Mapping</label>
+				<field id="paymentmap" translate="label comment tooltip" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+					<label>Payment Mapping</label>
+					<frontend_model>PWS\Billingo\Block\Adminhtml\System\Config\Form\Field\Paymentmap</frontend_model>
+					<backend_model>PWS\Billingo\Block\Adminhtml\System\Config\Backend\Paymentmap</backend_model>
+					<comment>
+						<![CDATA[Add the comments!]]>
+					</comment>
+					<tooltip>Map the magento payments to billingo</tooltip>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>
